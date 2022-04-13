@@ -25,9 +25,9 @@ class SendMailMessageDispatcher(AbstractMessageDispatcher):
         email_html_template = self._config[EMAIL_HTML_TEMPLATE]
         try:
             send_mail(
-                subject=self._config.get(EMAIL_SUBJECT),
-                message=get_template(email_plain_template).render(context),
-                html_message=get_template(email_html_template).render(context),
+                subject="" + self._config.get(EMAIL_SUBJECT),
+                message="" + get_template(email_plain_template).render(context),
+                html_message="" + get_template(email_html_template).render(context),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=(self._to,),
                 fail_silently=False,
