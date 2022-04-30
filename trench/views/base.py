@@ -116,7 +116,9 @@ class MFAMethodActivationView(APIView):
             )
         except MFAValidationError as cause:
             return ErrorResponse(error=cause)
-        return get_mfa_handler(mfa_method=mfa).dispatch_message()
+        mfa_backend = get_mfa_handler(mfa_method=mfa)
+        mfa_backend.request = request
+        return mfa_backend.dispatch_message()
 
 
 class MFAMethodConfirmActivationView(APIView):
@@ -223,7 +225,9 @@ class MFAMethodRequestCodeView(APIView):
                     user_id=request.user.id
                 )
             mfa = mfa_model.objects.get_by_name(user_id=request.user.id, name=method)
-            return get_mfa_handler(mfa_method=mfa).dispatch_message()
+            mfa_backend = get_mfa_handler(mfa_method=mfa)
+            mfa_backend.request = request
+            return mfa_backend.dispatch_message()
         except MFAValidationError as cause:
             return ErrorResponse(error=cause)
 
