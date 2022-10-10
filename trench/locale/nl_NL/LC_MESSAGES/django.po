@@ -8,24 +8,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 09:06+0000\n"
+"POT-Creation-Date: 2022-10-10 14:53+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: trench/backends/basic_mail.py:20
-msgid "Email message with MFA code has been sent."
-msgstr "E-mail bericht met MFA code is verzonden."
-
-#: trench/backends/sms_api.py:17 trench/backends/twilio.py:17
+#: trench/backends/aws.py:17 trench/backends/sms_api.py:17
+#: trench/backends/twilio.py:17
 msgid "Your verification code is: "
 msgstr "Uw verificatiecode is: "
 
-#: trench/backends/sms_api.py:18 trench/backends/twilio.py:18
+#: trench/backends/aws.py:18 trench/backends/sms_api.py:18
+#: trench/backends/twilio.py:18
 msgid "SMS message with MFA code has been sent."
 msgstr "SMS bericht met MFA code is verzonden."
+
+#: trench/backends/basic_mail.py:20
+msgid "Email message with MFA code has been sent."
+msgstr "E-mail bericht met MFA code is verzonden."
 
 #: trench/backends/yubikey.py:15
 msgid "Generate code using YubiKey"
@@ -103,30 +105,40 @@ msgstr "MFA Methode"
 msgid "MFA Methods"
 msgstr "MFA methoden"
 
-#: trench/settings.py:71
+#: trench/settings.py:78
 msgid "sms_twilio"
 msgstr "sms_twilio"
 
-#: trench/settings.py:78
+#: trench/settings.py:87
 msgid "sms_api"
 msgstr "sms_api"
 
-#: trench/settings.py:86
+#: trench/settings.py:95
+msgid "sms_aws"
+msgstr "sms_aws"
+
+#: trench/settings.py:105
 msgid "email"
 msgstr "e-mail"
 
-#: trench/settings.py:90
+#: trench/settings.py:109
 msgid "Your verification code"
 msgstr "Uw verificatiecode"
 
-#: trench/settings.py:95
+#: trench/settings.py:115
 msgid "app"
 msgstr "app"
 
-#: trench/settings.py:101
+#: trench/settings.py:121
 msgid "yubi"
 msgstr "yubi"
 
-#: trench/views/base.py:166
+#: trench/templates/trench/backends/email/code_subject.html:2
+msgid ""
+"\n"
+"Your verification code\n"
+msgstr "\nUw verificatiecode\n"
+
+#: trench/views/base.py:172
 msgid "Backup codes regeneration is not allowed."
 msgstr "Het generenen van backup codes is niet toegestaan."
